@@ -5,6 +5,7 @@
 </head>
 
 <body>
+<nav th:replace="fragments::navbar"></nav>
 <main class="container">
     <h2>Sign up</h2>
     <form th:action="@{/signup}" th:object="${user}" method="post" autocomplete="off" >

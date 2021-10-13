@@ -5,12 +5,18 @@
 </head>
 
 <body>
+<nav th:replace="fragments::navbar"></nav>
 <main class="container">
     <h2>Tweets</h2>
-    <div th:each="tweet:${tweetList}">
-        <h5>@<span th:text="${tweet.user.username}"></span>
-            <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
-        <p th:utext="${tweet.message}"></p>
+    <div class="list-group" th:each="tweet:${tweetList}">
+        <div class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <h5>@<span th:text="${tweet.user.username}"></span>
+                    <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small>
+                </h5>
+            </div>
+            <p class="mb-1" th:utext="${tweet.message}"></p>
+        </div>
     </div>
 </main>
 </body>

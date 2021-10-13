@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -49,6 +50,14 @@ public class User {
 
     @CreationTimestamp
     private Date createdAt;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "follower_id"))
+    private List<User> followers;
+
+    @ManyToMany(mappedBy = "followers")
+    private List<User> following;
 
     @Override
     public boolean equals(Object o) {
