@@ -6,7 +6,7 @@
 </head>
 <body>
 <nav th:replace="fragments::navbar"></nav>
-<main class="container">
+<main class="container mt-4">
     <h2>Welcome!</h2>
     <form th:action="@{/login}" method="post"><br/>
         <input type="text" id="username" name="username" th:placeholder="Username" class="form-control"/> <br/>

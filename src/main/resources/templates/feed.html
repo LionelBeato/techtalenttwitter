@@ -6,15 +6,14 @@
 
 <body>
 <nav th:replace="fragments::navbar"></nav>
-<main class="container">
+<main class="container mt-4">
     <h2>Tweets</h2>
     <div class="list-group" th:each="tweet:${tweetList}">
-        <div class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action mt-2 shadow-sm">
             <div class="d-flex w-100 justify-content-between">
-                <h5>@<span th:text="${tweet.user.username}"></span>
-                    <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small>
-                </h5>
+                <h5 style="margin:inherit;">@<span th:text="${tweet.user.username}"></span></h5>
             </div>
+            <small th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></small>
             <p class="mb-1" th:utext="${tweet.message}"></p>
         </div>
     </div>

@@ -6,7 +6,7 @@
 
 <body>
 <nav th:replace="fragments::navbar"></nav>
-<main class="container">
+<main class="container mt-4">
     <h2>Sign up</h2>
     <form th:action="@{/signup}" th:object="${user}" method="post" autocomplete="off" >
         <div class="form-group">
